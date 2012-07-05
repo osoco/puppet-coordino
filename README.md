@@ -7,15 +7,13 @@ Puppet module to install coordino Q&amp;A software. Depends on:
 
 Example of usage:
 
-  class coordino_conf($virtualhost_name = 'coordino.myorg.com') {
-
-    class { 'coordino': coordino_url =>'https://github.com/osoco/coordino.git' } # Patched to avoid captcha
-
-    coordino::config { "configure-coordino-$virtualhost_name":
+    class coordino_conf($virtualhost_name = 'coordino.myorg.com') {
+      class { 'coordino': coordino_url =>'https://github.com/osoco/coordino.git' } # Patched to avoid captcha
+      coordino::config { "configure-coordino-$virtualhost_name":
         virtualhost_name => "$virtualhost_name", 
         server_admin_mail => "admin@myorg.com",
         db_name => 'coordino',
         db_user => 'coordino',
         db_passwd => 'coordino'
+      }
     }
-  }
